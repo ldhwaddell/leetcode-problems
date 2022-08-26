@@ -8,12 +8,16 @@ Return k after placing the final result in the first k slots of nums.
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 """
 
+
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        pass
+        unique = 1
+        #for i in range(len(nums) - 1):
 
-        
+        return unique
+
+
 sol = Solution()
-nums = [0,0,1,1,1,2,2,3,3,4]
+nums = [0, 0, 1, 2, 2, 3]
 ans = sol.removeDuplicates(nums)
 print(ans)

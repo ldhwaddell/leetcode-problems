@@ -109,3 +109,8 @@ print(ans.print_linked_list())
 
 # Runtime:
 # Memory:
+
+
+            #if nums[i] != nums[i + 1]:
+            #    nums[unique] = nums[i + 1]
+            #    unique += 1
