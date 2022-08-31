@@ -16,14 +16,13 @@ class Solution:
         if len(needle) == 0:
             return 0
         for l in range(len(haystack)):
-            if haystack[l:l+len(needle)] == needle:
+            if haystack[l : l + len(needle)] == needle:
                 return l
         return -1
-                
+
+
 sol = Solution()
 haystack = "mississippi"
 needle = "ippi"
 ans = sol.strStr(haystack, needle)
 print(ans)
-
-
