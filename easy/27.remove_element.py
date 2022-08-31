@@ -30,3 +30,6 @@ nums = [0,1,2,2,3,0,4,2]
 val = 2
 ans = sol.removeElement(nums, val)
 print(ans)
+
+
+# Help: https://www.youtube.com/watch?v=Pcd1ii9P9ZI&ab_channel=NeetCode
