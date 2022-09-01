@@ -5,19 +5,28 @@ Increment the large integer by one and return the resulting array of digits.
 """
 
 
+import re
+
+
 class Solution:
     def plusOne(self, digits: list[int]) -> list[int]:
-        return 0
+        for i in range(len(digits) - 1, -1, -1):
+            digits[i] += 1
+            if digits[i] != 10:
+                return digits
+            digits[i] = 0
+        digits.insert(0, 1)
+        return digits
 
 
 sol = Solution()
 digits_1 = [4, 3, 2, 1]
-digits_2 = [9]
-ans = sol.lengthOfLastWord_v1(s)
+digits_2 = [9, 9, 9]
+ans = sol.plusOne(digits_2)
 print(ans)
 
-#
+# Runtime: 31 ms, faster than 96.61% of Python3 online submissions for Plus One.
 
-#
+# Memory Usage: 13.8 MB, less than 96.36% of Python3 online submissions for Plus One.
 
 # Time complexity:
