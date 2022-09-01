@@ -1,18 +1,18 @@
+from typing import Optional
+
 """
-You are given the heads of two sorted linked lists list1 and list2.
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
-Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
-
-Return the head of the merged linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
 """
 
 
 class Node:
-    def __init__(self, val):
+    def __init__(self, val=0, next=None):
         """Initialize a single node"""
         self.val = val
-        self.next = None
+        self.next = next
 
 
 class LinkedList:
@@ -64,49 +64,27 @@ class LinkedList:
 
 
 class Solution:
-    def mergeTwoLists_1(self, head1, head2):
-        dummy = Node(0)
-        cursor = dummy
-        while True:
-
-            if head1 is None:
-                cursor.next = head2
-                break
-            if head2 is None:
-                cursor.next = head1
-                break
-
-            if head1.val <= head2.val:
-                cursor.next = head1
-                head1 = head1.next
-            else:
-                cursor.next = head2
-                head2 = head2.next
-
-            cursor = cursor.next
-
-        return dummy.next
+    def addTwoNumbers(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
+        while l1 or l2:
+            print(l1)
+            print(l2)
+        return l1
 
 
 list1 = LinkedList()
 list2 = LinkedList()
 
-list1.add(1)
 list1.add(2)
+list1.add(4)
 list1.add(3)
 
-list2.add(4)
 list2.add(5)
 list2.add(6)
+list2.add(4)
 
 print(f"list1: {list1.print_linked_list()}")
 print(f"list2: {list2.print_linked_list()}")
 sol = Solution()
 ans = LinkedList()
-ans.head = sol.mergeTwoLists_1(list1.head, list2.head)
+ans = sol.addTwoNumbers(list1, list2)
 print(ans.print_linked_list())
-
-
-# Runtime:
-# Memory:
-
