@@ -65,9 +65,15 @@ class LinkedList:
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
-        while l1 or l2:
-            print(l1)
-            print(l2)
+        dummy = cursor = Node()
+        print(dummy.val)
+        print(cursor.val)
+
+        cursor = list1.head
+        print(dummy.val)
+        print(cursor.val)
+        # while l1 or l2:
+
         return l1
 
 
