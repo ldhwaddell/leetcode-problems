@@ -36,5 +36,3 @@ print(ans)
 # Memory Usage: 14 MB, less than 5.76% of Python3 online submissions for Length of Last Word.
 
 # Time complexity:
-
-# email
