@@ -8,89 +8,46 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 """
 
 
-class Node:
+class ListNode:
     def __init__(self, val=0, next=None):
         """Initialize a single node"""
         self.val = val
         self.next = next
 
 
-class LinkedList:
-    def __init__(self):
-        """Initialize head of list, pointing nowhere"""
-        # All the linked list needs is a head to initialize
-        self.head = None
-
-    def add(self, new_val):
-        """Add a value to the linked list"""
-        # Get the value from params
-        new_node = Node(new_val)
-
-        # If the list is empty, meaning head points nowhere
-        # Make the head of the list the new node
-        if self.head is None:
-            self.head = new_node
-            return
-
-        # Else list does have a head
-        # Start the cursor at the head of the list
-        cursor = self.head
-        # While the cursor does have a next value
-        while cursor.next:
-            # iterate over the nodes
-            # The cursor is pointed to the next node until there is no next node
-            cursor = cursor.next
-        # Once there is no longer a next node,
-        # the cursor (last item in list at this point)
-        # gets pointed to the newly created node
-        cursor.next = new_node
-
-    def print_linked_list(self):
-        """Output each value"""
-        vals = []
-        # If the linked list doesnt have a head, return nothing
-        if self.head is None:
-            return ""
-        # Else, linked list does have a head. Make the start node the head of the list (item one)
-        start_node = self.head
-        # While there is a start node
-        while start_node:
-            # Print the nodes value
-            # print(start_node.val, end=" ")
-            vals.append(start_node.val)
-            # Point the start node to the next node
-            start_node = start_node.next
-        return vals
-
-
 class Solution:
-    def addTwoNumbers(self, l1: Optional[Node], l2: Optional[Node]) -> Optional[Node]:
-        dummy = cursor = Node()
-        print(dummy.val)
-        print(cursor.val)
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        # initialize a current node to the dummy head of the list to be returned
+        dummy_head = cur = ListNode(0)
+        # Set the carry value to 0
+        carry = 0
 
-        cursor = list1.head
-        print(dummy.val)
-        print(cursor.val)
-        # while l1 or l2:
+        # Do operation while l1 has a node, l2 has a node, or the carry flag is not 0
+        while l1 or l2 or carry:
+            # only get an x or y val if there exists a node in the respective list
+            x = l1.val if l1 else 0
+            y = l2.val if l2 else 0
 
-        return l1
+            # Sum the nodes and carry flag (flag starts at 0)
+            sum = x + y + carry
+            # Make the carry flag the ones digit of sum (8 + 7 = 15 -> 15 // 10 = 1)
+            carry = sum // 10
+            # make the sum just the units of sum as if the sum has made carry > 0, it will be added to the next node
+            sum = sum % 10
+            # make the cur node point to the new value
+            cur.next = ListNode(sum)
+            # Advance current node to next (newly created node)
+            cur = cur.next
+            # advance l1 and l2 if the have next values
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+
+        # Return the values the dummy head points to
+        return dummy_head.next
 
 
-list1 = LinkedList()
-list2 = LinkedList()
+# Runtime: 69 ms, faster than 94.09% of Python3 online submissions for Add Two Numbers.
 
-list1.add(2)
-list1.add(4)
-list1.add(3)
-
-list2.add(5)
-list2.add(6)
-list2.add(4)
-
-print(f"list1: {list1.print_linked_list()}")
-print(f"list2: {list2.print_linked_list()}")
-sol = Solution()
-ans = LinkedList()
-ans = sol.addTwoNumbers(list1, list2)
-print(ans.print_linked_list())
+# Memory Usage: 13.8 MB, less than 99.26% of Python3 online submissions for Add Two Numbers.
