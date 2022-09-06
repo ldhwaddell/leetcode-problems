@@ -9,14 +9,30 @@ Note: You are not allowed to use any built-in exponent function or operator, suc
 
 class Solution:
     def mySqrt(self, x: int) -> int:
-        return x
+        left = 0
+        right = x
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if x == mid * mid:
+                return mid
+
+            if x > mid * mid:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        # When there is no perfect square, hi is the the value on the left
+        # of where it would have been (rounding down). If we were rounding up,
+        # we would return lo
+        return right
 
 
 sol = Solution()
-x = 8
+x = 10
 ans = sol.mySqrt(x)
 print(ans)
-
 
 #
 
