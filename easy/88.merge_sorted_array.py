@@ -9,15 +9,25 @@ The final sorted array should not be returned by the function, but instead be st
 
 class Solution:
     def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        nums1[0] = nums2[0] if m == 0 and n == 1 else nums1[0]
+        if m and n:
+            nums2_pointer = 0
+            for i in range(n):
+                if nums1[i] < nums2[i]:
+                    nums1.insert(i + 1, nums2[i])
 
+        print(nums1)
 
 
 sol = Solution()
-ans = sol.merge()
-print(ans)
+nums1 = [1, 2, 3, 0, 0, 0]
+m = 1
+nums2 = [2, 5, 6]
+n = 3
+sol.merge(nums1, m, nums2, n)
 
-# 
+#
 
-# 
+#
 
 # Time complexity:
