@@ -1,7 +1,3 @@
-
-from math import remainder
-
-
 def twoSum(nums: list[int], target: int) -> list[int]:
     seen = {}
     for i, value in enumerate(nums):
@@ -16,5 +12,4 @@ def twoSum(nums: list[int], target: int) -> list[int]:
 nums = [2, 7, 11, 15]
 target = 9
 print(twoSum(nums, target))
-print("commit test")
 
