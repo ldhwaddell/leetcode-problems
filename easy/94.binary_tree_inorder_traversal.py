@@ -13,23 +13,37 @@ class TreeNode:
 
 
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
-        # create the empty stack data structure
+    # recursive solution
+    def recursiveInorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
+        res = []
+
+        def inorder(root):
+            if not root:
+                return
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+
+        inorder(root)
+        return res
+
+    def iterativeInorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
+        res = []
         stack = []
-        # set pointer node to the root
-        ptr = root
+        cur = root
 
-        while True:
-            if ptr:
-                stack.append(ptr)
-                ptr = ptr.left
-            else:
-                break
-        
-        
-        print([i.val for i in stack])
+        # While current pointer is pointing somewhere or the stack has item(s) in it
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
 
-
+            # Now at leftmost node
+            cur = stack.pop()
+            res.append(cur.val)
+            # Check if the node has right value
+            cur = cur.right
+        return res
 
 
 sol = Solution()
@@ -38,7 +52,11 @@ root.left = TreeNode(2)
 root.right = TreeNode(3)
 root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
-sol.inorderTraversal(root)
+rec_ans = sol.recursiveInorderTraversal(root)
+print(rec_ans)
+
+iter_ans = sol.iterativeInorderTraversal(root)
+print(iter_ans)
 
 #
 
