@@ -5,9 +5,6 @@ Increment the large integer by one and return the resulting array of digits.
 """
 
 
-import re
-
-
 class Solution:
     def plusOne(self, digits: list[int]) -> list[int]:
         for i in range(len(digits) - 1, -1, -1):
