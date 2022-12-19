@@ -7,11 +7,12 @@ In Pascal's triangle, each number is the sum of the two numbers directly above i
 
 class Solution:
     def generate(self, num_rows: int) -> list[list[int]]:
+        output = []
+
         # If empty, return empty list
         if not num_rows:
-            return []
+            return output
 
-        output = []
         # Initial row to add will always be [1]
         next_row = [1]
 
