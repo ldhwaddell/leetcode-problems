@@ -12,6 +12,8 @@ class Solution:
         if rowIndex == 1:
             return [1, 1]
 
+        
+
 
         return [1] + [] + [1]
 
