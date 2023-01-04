@@ -8,19 +8,21 @@ Letters are case sensitive, for example, "Aa" is not considered a palindrome her
 
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        dic = {}
-        for c in s:
-            if c not in dic:
-                dic[c] = 1
+        non_paired = set()
+        for letter in s:
+            if letter not in non_paired:
+                non_paired.add(letter)
             else:
-                dic[c]+=1
-        print(dic)
-        return "piss"
-        
+                non_paired.remove(letter)
+
+        if non_paired:
+            return len(s) - len(non_paired) + 1
+
+        return len(s)
 
 
 sol = Solution()
-s = "abccccdd"
+s = "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
 ans = sol.longestPalindrome(s)
 print(ans)
 
