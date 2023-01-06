@@ -15,9 +15,7 @@ Return the modified image after performing the flood fill.
 
 
 class Solution:
-    def floodFill(
-        self, image: list[list[int]], sr: int, sc: int, color: int
-    ) -> list[list[int]]:
+    def floodFill(self, image: list[list[int]], sr: int, sc: int, color: int) -> list[list[int]]:
         rows = len(image)
         columns = len(image[0])
         curr_color = image[sr][sc]
