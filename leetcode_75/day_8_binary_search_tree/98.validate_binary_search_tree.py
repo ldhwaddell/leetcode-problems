@@ -30,9 +30,6 @@ class Solution:
             if root.val <= min or root.val >= max:
                 return False
 
-            print(root.val, min)
-            print(root.val, max)
-
             return validate(root.left, min, root.val) and validate(
                 root.right, root.val, max
             )
