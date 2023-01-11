@@ -13,8 +13,18 @@ The test cases are generated so that the answer will be less than or equal to 2 
 
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
+        row = [1] * n
+
+        # Iterate over each row, skipping bottom row
+        for i in range(m - 1):
+            new_row = [1] * n
+            # Iterating over row from right to left, skipping rightmost row
+            for j in range(n - 2, -1, -1):
+                ...
+
+
         
-        ...
+        return "piss"
 
 
 sol = Solution()
@@ -22,6 +32,7 @@ m = 3
 n = 2
 ans = sol.uniquePaths(m, n)
 print(ans)
+
 
 #
 
